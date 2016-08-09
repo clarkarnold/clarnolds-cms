@@ -1,5 +1,0 @@
-<?php 
-
-echo "First File";
-
-?>
