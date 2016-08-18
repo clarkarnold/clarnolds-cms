@@ -48,6 +48,17 @@
                                     <input class="btn btn-primary" type="submit" name="submit" value="Add Category" >
                                 </div>
                             </form>
+                            
+                            <?php 
+                            
+                            if(isset($_GET['edit'])) {
+                                $cat_id = $_GET['edit'];
+                                include "includes/update_categories.php";
+                            }
+                            
+                            ?>
+                            
+
                         </div>
                         
                         <div class="col-xs-12 col-sm-6">
@@ -66,7 +77,15 @@
                                         while($row = mysqli_fetch_assoc($category_query)) {
                                             $id = $row["cat_id"];
                                             $cat_title = $row["cat_title"];
-                                            echo "<tr><td>{$id}</td><td>{$cat_title}<a class='pull-right' href='categories.php?delete={$id}'>Delete</a></td></tr>";
+                                            echo "
+                                            <tr>
+                                                <td>{$id}</td>
+                                                <td><p>{$cat_title}</p>
+                                                    <div class='btn-toolbar'>
+                                                    <a class='btn btn-sm btn-danger pull-right' href='categories.php?delete={$id}'> Delete</a><a class=' btn btn-sm btn-warning pull-right' href='categories.php?edit={$id}'>Edit </a> 
+                                                    </div>
+                                                </td>
+                                            </tr>";
                                         }
                                     
                                     

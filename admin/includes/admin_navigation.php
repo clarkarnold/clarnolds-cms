@@ -59,7 +59,7 @@
             </li>
             
             <li class="">
-                <a href="blank-page.html"><i class="fa fa-fw fa-list"></i> Categories</a>
+                <a href="categories.php"><i class="fa fa-fw fa-list"></i> Categories</a>
             </li>
             <li>
                 <a href="index-rtl.html"><i class="fa fa-fw fa-heart"></i> Profile</a>
