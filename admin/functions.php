@@ -1,5 +1,12 @@
 <?php
 
+function confirm($query) {
+    if(!$query) {
+        die("Query Failed, " . mysqli_error($connection));
+    }
+}
+
+
 
 
 function insert_categories() {
