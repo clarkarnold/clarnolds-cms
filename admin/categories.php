@@ -1,5 +1,5 @@
 <?php include "includes/admin_header.php"; ?>
-
+ 
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -19,26 +19,9 @@
                         
                         <!-- Form for new Category Begins -->
                         <div class="col-xs-12 col-sm-6">
-                           <?php
-                            
-                            if(isset($_POST['submit'])) {
-                                $cat_title = $_POST['cat_title'];
-                                
-                                if($cat_title=="" || empty($cat_title)) {
-                                    echo "<p class='bg-danger'>You Dumb</p>";
-                                } else {
-                                    $query = "INSERT INTO category(cat_title) ";
-                                    $query .= "VALUE('{$cat_title}') ";
-                                    
-                                    $create_category = mysqli_query($connection, $query);
-                                    
-                                    if(!$create_category) {
-                                        die("Error " . mysqli_error($connection));
-                                    }
-                                }
-                            }
-                            
-                            ?>
+                          
+                           <?php insert_categories(); ?>
+                           
                             <form action="" method="post">
                                 <div class="form-group">
                                    <label for="cat_title">New Category</label>
@@ -50,7 +33,7 @@
                             </form>
                             
                             <?php 
-                            
+                            // If EDIT is pressed, includes update_categories form section
                             if(isset($_GET['edit'])) {
                                 $cat_id = $_GET['edit'];
                                 include "includes/update_categories.php";
@@ -70,38 +53,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php
-                                        $query = "SELECT * FROM category";
-                                        $category_query = mysqli_query($connection, $query);
+                                   <!-- Function to bring all categories into view -->
+                                    <?php view_categories(); ?>
                                     
-                                        while($row = mysqli_fetch_assoc($category_query)) {
-                                            $id = $row["cat_id"];
-                                            $cat_title = $row["cat_title"];
-                                            echo "
-                                            <tr>
-                                                <td>{$id}</td>
-                                                <td><p>{$cat_title}</p>
-                                                    <div class='btn-toolbar'>
-                                                    <a class='btn btn-sm btn-danger pull-right' href='categories.php?delete={$id}'> Delete</a><a class=' btn btn-sm btn-warning pull-right' href='categories.php?edit={$id}'>Edit </a> 
-                                                    </div>
-                                                </td>
-                                            </tr>";
-                                        }
+                                    <!-- Function to bring delete form to screen -->
+                                    <?php delete_category(); ?>
                                     
-                                    
-                                    ?>
-                                    
-                                    <?php
-                                    
-                                    if(isset($_GET['delete'])) {
-                                        $get_cat_id = $_GET['delete'];
-                                        $get_query = "DELETE FROM category WHERE cat_id = {$get_cat_id} ";
-                                        $delete_query = mysqli_query($connection, $get_query);
-                                        header("Location: categories.php");
-                                    }
-                                    
-                                    
-                                    ?>
                                 </tbody>
                             </table>
                         </div>
