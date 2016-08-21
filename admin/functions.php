@@ -1,6 +1,8 @@
 <?php
 
 function confirm($query) {
+    // function used to return error if there is a connection issue
+    global $connection;
     if(!$query) {
         die("Query Failed, " . mysqli_error($connection));
     }
@@ -10,7 +12,7 @@ function confirm($query) {
 
 
 function insert_categories() {
-    
+    // insert categories into database
     global $connection;
     if(isset($_POST['submit'])) {
         $cat_title = $_POST['cat_title'];
@@ -31,6 +33,7 @@ function insert_categories() {
 }
 
 function view_categories() {
+    // select all categories 
     global $connection;
     $query = "SELECT * FROM category";
     $category_query = mysqli_query($connection, $query);
