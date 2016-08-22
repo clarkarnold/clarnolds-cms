@@ -31,7 +31,18 @@ if(isset($_POST['update_post'])) {
     $post_content = $_POST['post_content'];
     $post_tags = $_POST['post_tags'];
     
+    //move image file to the server
     move_uploaded_file($post_image_temp, "../images/$post_image");
+    
+    // if no new image selected, keep the original image from the database
+    if(empty($post_image_temp)){
+        $query = "SELECT * FROM posts WHERE post_id = $the_post_id ";
+        $select_image = mysqli_query($connection,$query);
+        while($row = mysqli_fetch_assoc($select_image)){
+            $post_image = $row['post_image'];
+            
+        }
+    }
     
     
     
@@ -48,6 +59,8 @@ if(isset($_POST['update_post'])) {
     
     $update_post = mysqli_query($connection, $query);
     confirm($update_post);
+    
+    header("Location: post.php");
 }
 
 
