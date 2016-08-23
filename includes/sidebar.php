@@ -32,7 +32,8 @@
                     $category_query = mysqli_query($connection, $query);
                     while($row = mysqli_fetch_assoc($category_query)) {
                         $title = $row['cat_title'];
-                        echo "<li><a href='#'>{$title}</a></li>";
+                        $cat_id = $row["cat_id"];
+                        echo "<li><a href='category.php?category=$cat_id'>{$title}</a></li>";
                     } 
                     
                     ?>
