@@ -36,10 +36,10 @@
                 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-user"></i> Users <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="demo" class="collapse">
                     <li>
-                        <a href="#"> View All Users</a>
+                        <a href="users.php"> View All Users</a>
                     </li>
                     <li>
-                        <a href="#">New User</a>
+                        <a href="users.php?source=add_user">New User</a>
                     </li>
                 </ul>
             </li>
@@ -55,7 +55,7 @@
                 </ul>
             </li>
             <li>
-                <a href="bootstrap-grid.html"><i class="fa fa-fw fa-comment"></i> Comments</a>
+                <a href="comments.php"><i class="fa fa-fw fa-comment"></i> Comments</a>
             </li>
             
             <li class="">

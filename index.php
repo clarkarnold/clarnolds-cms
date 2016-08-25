@@ -17,8 +17,9 @@
                
                 <?php
                 
-                $query = "SELECT * FROM posts";
+                $query = "SELECT * FROM posts ";
                 $select_all_posts_query = mysqli_query($connection, $query);
+                
                 
                 while($row = mysqli_fetch_assoc($select_all_posts_query)) {
                     $post_id = $row['post_id'];
@@ -26,7 +27,12 @@
                     $post_author = $row["post_author"];
                     $post_date = $row["post_date"];
                     $post_image = $row["post_image"];
-                    $post_content = $row["post_content"];
+                    $post_content = substr($row["post_content"],0,100);
+                    $post_status = $row["post_status"];
+                    
+                    if($post_status !== 'published') {
+                        echo "<h1>No posts here, sorry.</h1>";
+                    } else {
                     
                     ?>
                     
@@ -43,13 +49,13 @@
                 <hr>
                 <img class="img-responsive" src="images/<?php echo $post_image ?>" alt="">
                 <hr>
-                <p><?php echo $post_content ?></p>
+                <p><?php echo $post_content ?>...</p>
                 <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
                 <hr>
                     
                     
-                <?php } ?>
+                <?php }} // end while and end if ?>
                 
                 
                 

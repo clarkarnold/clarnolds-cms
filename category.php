@@ -26,7 +26,7 @@
                     $post_author = $row["post_author"];
                     $post_date = $row["post_date"];
                     $post_image = $row["post_image"];
-                    $post_content = $row["post_content"];
+                    $post_content = substr($row["post_content"],0,100);
                     
                 ?>
                     
@@ -53,7 +53,7 @@
                 <hr>
                 <img class="img-responsive" src="images/<?php echo $post_image ?>" alt="">
                 <hr>
-                <p><?php echo $post_content ?></p>
+                <p><?php echo $post_content ?>...</p>
                 <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
                 <hr>
