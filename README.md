@@ -3,4 +3,4 @@ Simple CMS
 
 CMS built using a bootstrap template, and PHP
 
-test
+Follows along with [Edwin Diaz's](www.edwindiaz.com) PHP course.
