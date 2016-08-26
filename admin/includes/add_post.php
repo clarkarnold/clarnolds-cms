@@ -1,4 +1,6 @@
-<?php
+<script src="http://cdn.tinymce.com/4/tinymce.min.js"></script>
+<script src="js/script.js"></script>
+  <?php
    if (isset($_POST['create_post'])){
        $post_title = $_POST['title'];
        $post_category_id = $_POST['post_category'];
@@ -25,7 +27,7 @@
        
        $create_post_query = mysqli_query($connection, $query);
        confirm($create_post_query);
-       
+       echo "<p class='bg-success'>Post Created: " . "<a href='post.php'>View Post</a></p>";
    }
 
    ?>
@@ -79,7 +81,7 @@
     
     <div class="form-group">
         <label for="post_content">Post Content</label>
-        <textarea name="post_content" id="" cols="30" rows="10" class="form-control"></textarea>
+        <textarea name="post_content" id="" cols="30" rows="10" class=""></textarea>
     </div>
     
     <div class="form-group">

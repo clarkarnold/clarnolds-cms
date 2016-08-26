@@ -12,23 +12,25 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                   <?php
-                    // this query selects all fields from category
-                    $query = "SELECT * FROM category";
-                    // this select all stores the result as a mysqli_result
-                    $select_all_categories_query = mysqli_query($connection, $query);
+                <ul class="nav navbar-nav navbar-right">
 
-                    // this while loop sets $row to each row of an assoc array,
-                    // then loops through and sets each value as a link inside a <li>
-                    while($row = mysqli_fetch_assoc($select_all_categories_query)) {
-                        $cat_title = $row["cat_title"];
-                        $cat_id = $row["cat_id"];
-                        echo "<li><a href='category.php?category=$cat_id'>{$cat_title}</a></li>";
-                    }
                     
-                    ?>
-                    <li><a href="admin">Admin</a></li>
+                    <?php
+                    
+                    if(isset($_SESSION['role'])){
+                        echo "<li class='pull-right'><a href='includes/logout.php'>Logout</a></li>";
+                        
+                        if($_SESSION['role'] == 'admin') {
+                            echo "<li class='pull-right'><a href='admin'>Admin</a></li>";
+                        }
+
+                        if(isset($_GET['p_id']) && $_SESSION['role'] == 'admin'){
+                            $p_id = $_GET['p_id'];
+                            echo "<li><a href='admin/post.php?source=edit_post&p_id=$p_id'>Edit Post</a></li>";
+                        }
+                    }
+ 
+                        ?>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

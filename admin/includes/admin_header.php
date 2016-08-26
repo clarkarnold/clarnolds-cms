@@ -3,7 +3,7 @@
 <?php ob_start(); ?>
 <?php session_start(); ?>
 <?php
-if(!isset($_SESSION['role'])){
+if(!isset($_SESSION['role']) || $_SESSION['role'] == 'subscriber'){
         // 
         header("Location: ../index.php");
 } 

@@ -49,7 +49,9 @@
                 <hr>
 
                 <!-- Preview Image -->
+                
                 <img class="img-responsive" src='images/<?php echo $post_image ?>' alt="Image">
+                
 
                 <hr>
 

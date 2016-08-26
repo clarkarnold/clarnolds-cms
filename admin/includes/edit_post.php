@@ -1,3 +1,8 @@
+<script src="http://cdn.tinymce.com/4/tinymce.min.js"></script>
+<script src="js/script.js"></script>
+
+
+
 <?php
 if (isset($_GET['p_id'])){
     $the_post_id = $_GET['p_id'];
@@ -60,7 +65,7 @@ if(isset($_POST['update_post'])) {
     $update_post = mysqli_query($connection, $query);
     confirm($update_post);
     
-    header("Location: post.php");
+    echo "<p class='bg-success'>Post Updated: " . "<a href='../post.php?p_id=$the_post_id'>View Post</a></p>";
 }
 
 

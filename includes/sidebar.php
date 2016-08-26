@@ -20,6 +20,9 @@
     </div>
     
     <!-- Login Form   -->
+    <?php
+    if(!isset($_SESSION['username'])){
+        echo '
     <div class="well">
         <h4>Login</h4>
         <form action="includes/login.php" method="post">
@@ -38,7 +41,9 @@
         
         </form> <!-- search form end -->
         <!-- /.input-group -->
-    </div>
+    </div>';
+        }
+    ?>
     
     
 
