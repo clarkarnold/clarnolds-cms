@@ -1,31 +1,6 @@
-<?php include "includes/admin_header.php"; ?>
-
-
-    <div id="wrapper">
-
-        <!-- Navigation -->
-        <?php include "includes/admin_navigation.php"; ?>
-
-        <div id="page-wrapper">
-
-            <div class="container-fluid">
-
-                <!-- Page Heading -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">
-                            Welcome to Admin
-                            <small><?php echo $_SESSION['firstname']; ?></small>
-                        </h1>
-                        
-                        
-                    </div>
-                </div>
-                <!-- /.row -->
-                <!-- /.row -->
+<!-- /.row -->
                 
 <div class="row">
-   
     <div class="col-lg-3 col-md-6">
         <div class="panel panel-primary">
             <div class="panel-heading">
@@ -34,18 +9,12 @@
                         <i class="fa fa-file-text fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                    <?php
-                        $query = "SELECT * FROM posts";
-                        $select_all_posts = mysqli_query($connection, $query);
-                        
-                        $post_count = mysqli_num_rows($select_all_posts);
-                    ?>
-                  <div class='huge'><?php echo $post_count; ?></div>
+                  <div class='huge'>12</div>
                         <div>Posts</div>
                     </div>
                 </div>
             </div>
-            <a href="post.php">
+            <a href="posts.php">
                 <div class="panel-footer">
                     <span class="pull-left">View Details</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -54,7 +23,6 @@
             </a>
         </div>
     </div>
-    
     <div class="col-lg-3 col-md-6">
         <div class="panel panel-green">
             <div class="panel-heading">
@@ -63,12 +31,7 @@
                         <i class="fa fa-comments fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                    <?php
-                        $query = "SELECT * FROM comments";
-                        $select_all_comments = mysqli_query($connection,$query);
-                        $comment_count = mysqli_num_rows($select_all_comments);
-                    ?>
-                     <div class='huge'><?php echo $comment_count; ?></div>
+                     <div class='huge'>23</div>
                       <div>Comments</div>
                     </div>
                 </div>
@@ -82,7 +45,6 @@
             </a>
         </div>
     </div>
-    
     <div class="col-lg-3 col-md-6">
         <div class="panel panel-yellow">
             <div class="panel-heading">
@@ -91,12 +53,7 @@
                         <i class="fa fa-user fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                    <?php
-                        $query = "SELECT * FROM users";
-                        $select_all_users = mysqli_query($connection,$query);
-                        $user_count = mysqli_num_rows($select_all_users);
-                    ?>
-                    <div class='huge'><?php echo $user_count; ?></div>
+                    <div class='huge'>23</div>
                         <div> Users</div>
                     </div>
                 </div>
@@ -110,7 +67,6 @@
             </a>
         </div>
     </div>
-    
     <div class="col-lg-3 col-md-6">
         <div class="panel panel-red">
             <div class="panel-heading">
@@ -119,12 +75,7 @@
                         <i class="fa fa-list fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                       <?php
-                        $query = "SELECT * FROM category";
-                        $select_all_category = mysqli_query($connection,$query);
-                        $category_count = mysqli_num_rows($select_all_category);
-                    ?>
-                        <div class='huge'><?php echo $category_count; ?></div>
+                        <div class='huge'>13</div>
                          <div>Categories</div>
                     </div>
                 </div>
@@ -140,20 +91,3 @@
     </div>
 </div>
                 <!-- /.row -->
-
-            </div>
-            <!-- /.container-fluid -->
-
-        </div>
-        <!-- /#page-wrapper -->
-
-    </div>
-    <!-- /#wrapper -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-<?php include "includes/admin_footer.php"; ?>

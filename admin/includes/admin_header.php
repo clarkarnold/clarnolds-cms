@@ -1,14 +1,12 @@
 <?php include "functions.php"; ?>
+<?php include "../includes/db.php"; ?>
 <?php ob_start(); ?>
 <?php session_start(); ?>
 <?php
 if(!isset($_SESSION['role'])){
-        // if users role is subsriber, reroutes them back to the home page
+        // 
         header("Location: ../index.php");
 } 
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +41,7 @@ if(!isset($_SESSION['role'])){
 
 <body>
 
-<?php include "../includes/db.php"; ?>
+
 
 
 
